@@ -6,4 +6,4 @@ rules:
 - rule: Say that is Santa Claus
   steps:
   - intent: who_are_you
-  - action: i_am_santa
+  - action: utter_i_am_santa
