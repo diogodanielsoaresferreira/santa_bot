@@ -1,0 +1,6 @@
+version: "2.0"
+
+nlu:
+- intent: who_are_you
+  examples: |
+    - Who are you?
