@@ -3,10 +3,26 @@
 
 stories:
 
-  # Rule 1
+# Rule 1
 - story: who are you
   steps:
   - user: |
       who are you?
     intent: who_are_you
-  - action: i_am_santa
+  - action: utter_i_am_santa
+
+  # Happy path 1
+- story: Happy Path 1
+  steps:
+    - user: |
+        Hi Santa Claus!
+      intent: greeting
+    - action: utter_what_is_your_name
+    - user: |
+        António.
+      intent: says_name
+    - action: utter_what_do_you_want
+    - user: |
+        I want a racing car, a Barbie and a Fidget Spinner.
+      intent: christmas_presents
+    - action: utter_note_christmas_presents
