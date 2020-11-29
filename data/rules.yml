@@ -1,0 +1,9 @@
+version: "2.0"
+
+rules:
+
+# Rule 1
+- rule: Say that is Santa Claus
+  steps:
+  - intent: who_are_you
+  - action: i_am_santa
