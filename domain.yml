@@ -1,25 +1,26 @@
 version: "2.0"
-
-intents:
-  - who_are_you
-  - greeting
-  - says_name
-  - christmas_presents
-
-responses:
-
-  utter_i_am_santa:
-  - text: "I am Santa Claus!"
-
-  utter_what_is_your_name:
-  - text: "Hi, what's your name?"
-
-  utter_what_do_you_want:
-    - text: "What do you want for Christmas?"
-
-  utter_note_christmas_presents:
-    - text: "Thanks, I will note it down."
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- who_are_you
+- greeting
+- says_name
+- christmas_presents
+entities:
+- PERSON
+slots:
+  PERSON:
+    type: text
+    influence_conversation: true
+responses:
+  utter_i_am_santa:
+  - text: I am Santa Claus!
+  utter_what_is_your_name:
+  - text: Hi, what's your name?
+  utter_what_do_you_want:
+  - text: What do you want for Christmas?
+  utter_note_christmas_presents:
+  - text: Thanks {PERSON}, I will note it down.
+  utter_repeat_please:
+  - text: Sorry, I didn't catch that. Can you repeat, please?
