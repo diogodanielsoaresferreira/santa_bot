@@ -5,23 +5,11 @@ stories:
 - story: happy path 1
   steps:
   - intent: greeting
-  - action: utter_what_is_your_name
-  - intent: says_name
-  - slot_was_set:
-      - PERSON: Luke
-  - action: utter_what_do_you_want
-  - intent: christmas_presents
-  - action: utter_note_christmas_presents
-
-- story: happy path 1 without name
-  steps:
-  - intent: greeting
-  - action: utter_what_is_your_name
-  - intent: says_name
-  - action: utter_repeat_please
-  - intent: says_name
+  - action: name_form
+  - active_loop: name_form
   - slot_was_set:
     - PERSON: Luke
+  - active_loop: null
   - action: utter_what_do_you_want
   - intent: christmas_presents
   - action: utter_note_christmas_presents

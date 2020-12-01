@@ -17,27 +17,7 @@ stories:
     - user: |
         Hi Santa Claus!
       intent: greeting
-    - action: utter_what_is_your_name
-    - user: |
-        My name is [Luke]{"entity": "PERSON"}.
-      intent: says_name
-    - action: utter_what_do_you_want
-    - user: |
-        I want a racing car, a Barbie and a Fidget Spinner.
-      intent: christmas_presents
-    - action: utter_note_christmas_presents
-
-# Happy path 1 without name
-- story: Happy Path 1 without name
-  steps:
-    - user: |
-        Hi Santa Claus!
-      intent: greeting
-    - action: utter_what_is_your_name
-    - user: |
-        My name is tree.
-      intent: says_name
-    - action: utter_repeat_please
+    - action: utter_ask_PERSON
     - user: |
         My name is [Luke]{"entity": "PERSON"}.
       intent: says_name
