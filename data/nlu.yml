@@ -21,10 +21,10 @@ nlu:
 
 - intent: says_name
   examples: |
-    - My name is Diogo
-    - António
-    - I'm called Joana
-    - People usually call me Rita
+    - My name is [John](PERSON)
+    - [Tony](PERSON)
+    - I'm called [Joana](PERSON)
+    - People usually call me [Rita](PERSON)
 
 - intent: christmas_presents
   examples: |
