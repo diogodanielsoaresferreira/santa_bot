@@ -1,4 +1,3 @@
-version: "2.0"
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -16,7 +15,7 @@ slots:
 responses:
   utter_i_am_santa:
   - text: I am Santa Claus!
-  utter_what_is_your_name:
+  utter_ask_PERSON:
   - text: Hi, what's your name?
   utter_what_do_you_want:
   - text: What do you want for Christmas?
@@ -24,3 +23,9 @@ responses:
   - text: Thanks {PERSON}, I will note it down.
   utter_repeat_please:
   - text: Sorry, I didn't catch that. Can you repeat, please?
+forms:
+  name_form:
+    PERSON:
+    - entity: PERSON
+      intent_name: says_name
+      type: from_entity

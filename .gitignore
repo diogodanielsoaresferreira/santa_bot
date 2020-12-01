@@ -256,5 +256,7 @@ events.db-wal
 rasa.db
 rasa.db-shm
 rasa.db-wal
+graph.html
+story_graph.dot
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm
