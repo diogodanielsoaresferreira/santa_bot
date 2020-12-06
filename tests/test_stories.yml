@@ -16,10 +16,12 @@ stories:
         Hi Santa Claus!
       intent: greeting
     - action: name_form
-    - action: utter_what_do_you_want
+    - active_loop: name_form
     - user: |
         My name is [Luke]{"entity": "PERSON"}.
       intent: says_name
+    - action: name_form
+    - active_loop: null
     - action: utter_what_do_you_want
     - user: |
         I want a Barbie.
@@ -32,7 +34,7 @@ stories:
         Hi Santa Claus!
       intent: greeting
     - action: name_form
-    - action: utter_what_do_you_want
+    - active_loop: name_form
     - user: |
         My name is lalala.
       intent: says_name
@@ -41,6 +43,31 @@ stories:
     - user: |
         My name is [John]{"entity": "PERSON" }.
       intent: says_name
+    - action: name_form
+    - active_loop: null
+    - action: utter_what_do_you_want
+    - user: |
+        I want a racing car.
+      intent: christmas_presents
+    - action: utter_note_christmas_presents
+
+- story: Unhappy Path 2
+  steps:
+    - user: |
+        Hi Santa Claus!
+      intent: greeting
+    - action: name_form
+    - active_loop: name_form
+    - user: |
+        lalala.
+      intent: says_name
+    - action: utter_repeat_please
+    - action: name_form
+    - user: |
+        My name is [John]{"entity": "PERSON" }.
+      intent: says_name
+    - action: name_form
+    - active_loop: null
     - action: utter_what_do_you_want
     - user: |
         I want a racing car.

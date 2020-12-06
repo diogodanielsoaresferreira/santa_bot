@@ -19,6 +19,8 @@ rules:
     - active_loop: name_form
   steps:
     - action: name_form
+    - slot_was_set:
+      - PERSON: John
     - active_loop: null
     - slot_was_set:
       - requested_slot: null
@@ -38,3 +40,4 @@ rules:
     - action: utter_repeat_please
     - action: name_form
     - active_loop: name_form
+  wait_for_user_input: false
