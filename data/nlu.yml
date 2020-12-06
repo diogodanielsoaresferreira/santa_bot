@@ -28,6 +28,7 @@ nlu:
 
 - intent: christmas_presents
   examples: |
-    - I want a racing car, a Barbie and a Fidget Spinner
+    - I want a racing car
+    - I want a Barbie
     - I want a football ball
     - I want peace and love for the world

@@ -3,7 +3,6 @@
 
 stories:
 
-# Rule 1
 - story: who are you
   steps:
   - user: |
@@ -11,18 +10,39 @@ stories:
     intent: who_are_you
   - action: utter_i_am_santa
 
-# Happy path 1
 - story: Happy Path 1
   steps:
     - user: |
         Hi Santa Claus!
       intent: greeting
-    - action: utter_ask_PERSON
+    - action: name_form
+    - action: utter_what_do_you_want
     - user: |
         My name is [Luke]{"entity": "PERSON"}.
       intent: says_name
     - action: utter_what_do_you_want
     - user: |
-        I want a racing car, a Barbie and a Fidget Spinner.
+        I want a Barbie.
+      intent: christmas_presents
+    - action: utter_note_christmas_presents
+
+- story: Unhappy Path 1
+  steps:
+    - user: |
+        Hi Santa Claus!
+      intent: greeting
+    - action: name_form
+    - action: utter_what_do_you_want
+    - user: |
+        My name is lalala.
+      intent: says_name
+    - action: utter_repeat_please
+    - action: name_form
+    - user: |
+        My name is [John]{"entity": "PERSON" }.
+      intent: says_name
+    - action: utter_what_do_you_want
+    - user: |
+        I want a racing car.
       intent: christmas_presents
     - action: utter_note_christmas_presents

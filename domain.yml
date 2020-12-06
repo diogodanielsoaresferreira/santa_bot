@@ -22,10 +22,9 @@ responses:
   utter_note_christmas_presents:
   - text: Thanks {PERSON}, I will note it down.
   utter_repeat_please:
-  - text: Sorry, I didn't catch that. Can you repeat, please?
+  - text: Sorry, I didn't catch that.
 forms:
   name_form:
     PERSON:
     - entity: PERSON
-      intent_name: says_name
       type: from_entity
