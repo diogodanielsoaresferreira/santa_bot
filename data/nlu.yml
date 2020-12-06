@@ -21,14 +21,24 @@ nlu:
 
 - intent: says_name
   examples: |
-    - My name is [John](PERSON)
-    - [Tony](PERSON)
-    - I'm called [Joana](PERSON)
-    - People usually call me [Rita](PERSON)
+    - My name is John
+    - Tony
+    - I'm called Joana
+    - People usually call me Rita
 
 - intent: christmas_presents
   examples: |
-    - I want a racing car
-    - I want a Barbie
-    - I want a football ball
-    - I want peace and love for the world
+    - I want a [racing car](product)
+    - I want a [barbie](product)
+    - I want a [football ball](product)
+    - I want [peace and love for the world](product)
+    - a [book](product)
+    - [Mercedes benz](product)
+    - [Samsung Note](product)
+    - i want a [smartphone](product)
+    - i want the [monopoly game](product)
+    - please I want the [Miley Cyrus album](product)
+    - a [remote controlled car](product)
+    - a new [pink t-shirt](product)
+    - I know it's expensive, but i'd always wanted to have a [skate](product)
+    - i would like to have a [drone](product) please

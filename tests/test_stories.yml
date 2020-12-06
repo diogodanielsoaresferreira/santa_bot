@@ -13,7 +13,7 @@ stories:
 - story: Happy Path 1
   steps:
     - user: |
-        Hi Santa Claus!
+        Hi Santa!
       intent: greeting
     - action: name_form
     - active_loop: name_form
@@ -24,7 +24,7 @@ stories:
     - active_loop: null
     - action: utter_what_do_you_want
     - user: |
-        I want a Barbie.
+        I want a [Barbie](product).
       intent: christmas_presents
     - action: utter_note_christmas_presents
 
@@ -47,7 +47,7 @@ stories:
     - active_loop: null
     - action: utter_what_do_you_want
     - user: |
-        I want a racing car.
+        I want a [racing car](product).
       intent: christmas_presents
     - action: utter_note_christmas_presents
 
@@ -70,6 +70,6 @@ stories:
     - active_loop: null
     - action: utter_what_do_you_want
     - user: |
-        I want a racing car.
+        I want an [Arctic Monkeys album](product).
       intent: christmas_presents
     - action: utter_note_christmas_presents

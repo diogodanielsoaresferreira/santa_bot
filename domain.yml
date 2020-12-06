@@ -8,8 +8,12 @@ intents:
 - christmas_presents
 entities:
 - PERSON
+- product
 slots:
   PERSON:
+    type: text
+    influence_conversation: true
+  product:
     type: text
     influence_conversation: true
 responses:
