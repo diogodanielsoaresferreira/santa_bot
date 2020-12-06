@@ -2,8 +2,42 @@ version: "2.0"
 
 rules:
 
-# Rule 1
 - rule: Say that is Santa Claus
   steps:
   - intent: who_are_you
   - action: utter_i_am_santa
+
+- rule: Greeting and activate name form
+  steps:
+  - intent: greeting
+  - action: name_form
+  - active_loop: name_form
+  wait_for_user_input: false
+
+- rule: Complete name form and ask what do you want for christmas
+  condition:
+    - active_loop: name_form
+  steps:
+    - action: name_form
+    - slot_was_set:
+      - PERSON: John
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_what_do_you_want
+    - intent: christmas_presents
+    - action: utter_note_christmas_presents
+
+- rule: If person was not filled, ask again
+  condition:
+    - active_loop: name_form
+    - slot_was_set:
+      - requested_slot: PERSON
+  steps:
+    - intent: says_name
+    - slot_was_set:
+      - requested_slot: PERSON
+    - action: utter_repeat_please
+    - action: name_form
+    - active_loop: name_form
+  wait_for_user_input: false
