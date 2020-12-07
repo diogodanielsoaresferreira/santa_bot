@@ -8,8 +8,12 @@ intents:
 - christmas_presents
 entities:
 - PERSON
+- product
 slots:
   PERSON:
+    type: text
+    influence_conversation: true
+  product:
     type: text
     influence_conversation: true
 responses:
@@ -17,15 +21,19 @@ responses:
   - text: I am Santa Claus!
   utter_ask_PERSON:
   - text: Hi, what's your name?
-  utter_what_do_you_want:
+  utter_ask_product:
   - text: What do you want for Christmas?
   utter_note_christmas_presents:
   - text: Thanks {PERSON}, I will note it down.
   utter_repeat_please:
   - text: Sorry, I didn't catch that.
 forms:
-  name_form:
+  xmas_form:
     PERSON:
     - entity: PERSON
       type: from_entity
       intent: says_name
+    product:
+    - entity: product
+      type: from_entity
+      intent: christmas_presents
