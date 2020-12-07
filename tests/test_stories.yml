@@ -1,6 +1,3 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
-
 stories:
 
 - story: who are you
@@ -10,66 +7,73 @@ stories:
     intent: who_are_you
   - action: utter_i_am_santa
 
-- story: Happy Path 1
+- story: Xmas form Happy Path
   steps:
     - user: |
         Hi Santa!
       intent: greeting
-    - action: name_form
-    - active_loop: name_form
-    - user: |
-        My name is [Luke]{"entity": "PERSON"}.
-      intent: says_name
-    - action: name_form
+    - action: xmas_form
+    - active_loop: xmas_form
+    - slot_was_set:
+      - PERSON: Luke
+    - slot_was_set:
+      - product: Barbie
     - active_loop: null
-    - action: utter_what_do_you_want
-    - user: |
-        I want a [Barbie](product).
-      intent: christmas_presents
     - action: utter_note_christmas_presents
 
-- story: Unhappy Path 1
+- story: Xmas form - wrong name
   steps:
     - user: |
         Hi Santa Claus!
       intent: greeting
-    - action: name_form
-    - active_loop: name_form
+    - action: xmas_form
+    - active_loop: xmas_form
     - user: |
         My name is lalala.
       intent: says_name
     - action: utter_repeat_please
-    - action: name_form
-    - user: |
-        My name is [John]{"entity": "PERSON" }.
-      intent: says_name
-    - action: name_form
+    - action: xmas_form
+    - slot_was_set:
+      - PERSON: John
+    - slot_was_set:
+      - product: Racing car
     - active_loop: null
-    - action: utter_what_do_you_want
-    - user: |
-        I want a [racing car](product).
-      intent: christmas_presents
     - action: utter_note_christmas_presents
 
-- story: Unhappy Path 2
+- story: Xmas form - not name intent
   steps:
     - user: |
         Hi Santa Claus!
       intent: greeting
-    - action: name_form
-    - active_loop: name_form
+    - action: xmas_form
+    - active_loop: xmas_form
     - user: |
         lalala.
-      intent: says_name
+      intent: greeting
     - action: utter_repeat_please
-    - action: name_form
-    - user: |
-        My name is [John]{"entity": "PERSON" }.
-      intent: says_name
-    - action: name_form
+    - action: xmas_form
+    - slot_was_set:
+        - PERSON: John
+    - slot_was_set:
+        - product: Arctic Monkeys album
     - active_loop: null
-    - action: utter_what_do_you_want
+    - action: utter_note_christmas_presents
+
+- story: Xmas form - wrong product
+  steps:
     - user: |
-        I want an [Arctic Monkeys album](product).
+        Hi there
+      intent: greeting
+    - action: xmas_form
+    - active_loop: xmas_form
+    - slot_was_set:
+      - PERSON: John
+    - user: |
+        blabla.
       intent: christmas_presents
+    - action: utter_repeat_please
+    - action: xmas_form
+    - slot_was_set:
+      - product: Racing car
+    - active_loop: null
     - action: utter_note_christmas_presents
