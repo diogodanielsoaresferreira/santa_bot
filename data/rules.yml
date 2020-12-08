@@ -30,6 +30,7 @@ rules:
     - active_loop: null
     - slot_was_set:
       - requested_slot: null
+    - action: action_save_xmas_present
     - action: utter_note_christmas_presents
 
 - rule: If person was not filled, ask again

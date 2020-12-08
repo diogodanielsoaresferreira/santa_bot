@@ -19,6 +19,7 @@ stories:
     - slot_was_set:
       - product: Barbie
     - active_loop: null
+    - action: action_save_xmas_present
     - action: utter_note_christmas_presents
 
 - story: Xmas form - wrong name
@@ -38,6 +39,7 @@ stories:
     - slot_was_set:
       - product: Racing car
     - active_loop: null
+    - action: action_save_xmas_present
     - action: utter_note_christmas_presents
 
 - story: Xmas form - not name intent
@@ -57,6 +59,7 @@ stories:
     - slot_was_set:
         - product: Arctic Monkeys album
     - active_loop: null
+    - action: action_save_xmas_present
     - action: utter_note_christmas_presents
 
 - story: Xmas form - wrong product
@@ -76,4 +79,5 @@ stories:
     - slot_was_set:
       - product: Racing car
     - active_loop: null
+    - action: action_save_xmas_present
     - action: utter_note_christmas_presents
