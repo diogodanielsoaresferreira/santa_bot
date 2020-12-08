@@ -3,7 +3,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from exceptions import SlotNotFound
+from .data_models import XmasPresents
+from .exceptions import SlotNotFound
 from . import NAME_SLOT, PRESENT_SLOT
 
 
@@ -18,6 +19,10 @@ def _get_slot(tracker: Tracker, slot: str):
 
 class SaveXmasPresent(Action):
 
+    def __init__(self):
+        self.xmasPresents = XmasPresents()
+        super().__init__()
+
     def name(self) -> Text:
         return "action_save_xmas_present"
 
@@ -28,5 +33,6 @@ class SaveXmasPresent(Action):
 
         name = _get_slot(tracker, NAME_SLOT)
         present = _get_slot(tracker, PRESENT_SLOT)
+        self.xmasPresents.add_present(name, present)
 
         return []

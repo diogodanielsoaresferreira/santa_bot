@@ -1,1 +1,1 @@
-from SlotNotFound import SlotNotFound
+from .SlotNotFound import SlotNotFound
