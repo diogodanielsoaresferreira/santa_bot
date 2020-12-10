@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
   rasa:
@@ -9,6 +9,17 @@ services:
       - ./:/app
     command:
       - run
+
+  rasa_actions:
+    build:
+      context: .
+    image: rasa_actions:0.0.1
+    environment:
+      - DB_HOST=db
+    expose:
+      - "5055"
+    restart: on-failure
+
   db:
     container_name: db
     image: postgres:13.1-alpine
