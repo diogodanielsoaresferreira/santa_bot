@@ -1,8 +1,26 @@
-version: '3'
+version: '3.7'
 
 services:
-  db:
-    container_name: db
+  rasa:
+    image: rasa/rasa:2.1.3-spacy-en
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    command: run --endpoints endpoints_inside_docker.yml
+
+  rasa_actions:
+    build:
+      context: .
+    image: rasa_actions:0.0.1
+    environment:
+      - DB_HOST=xmas_db
+    expose:
+      - "5055"
+    restart: on-failure
+
+  xmas_db:
+    container_name: xmas_db
     image: postgres:13.1-alpine
     environment:
       - POSTGRES_USER=rasa_action_server
