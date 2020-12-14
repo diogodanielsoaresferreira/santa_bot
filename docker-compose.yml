@@ -7,21 +7,20 @@ services:
       - 5005:5005
     volumes:
       - ./:/app
-    command:
-      - run
+    command: run --endpoints endpoints_inside_docker.yml
 
   rasa_actions:
     build:
       context: .
     image: rasa_actions:0.0.1
     environment:
-      - DB_HOST=db
+      - DB_HOST=xmas_db
     expose:
       - "5055"
     restart: on-failure
 
-  db:
-    container_name: db
+  xmas_db:
+    container_name: xmas_db
     image: postgres:13.1-alpine
     environment:
       - POSTGRES_USER=rasa_action_server

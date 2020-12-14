@@ -6,7 +6,6 @@ intents:
 - greeting
 - says_name
 - christmas_presents
-- nlu_fallback
 entities:
 - PERSON
 - product
@@ -17,9 +16,6 @@ slots:
   product:
     type: text
     influence_conversation: true
-  requested_slot:
-    type: unfeaturized
-    influence_conversation: false
 responses:
   utter_i_am_santa:
   - text: I am Santa Claus!
