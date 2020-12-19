@@ -10,6 +10,21 @@
 Talk directly with Santa Claus and tell him what presents you want!
 
 
+## Usage
+
+Here is an example of a simple conversation flow. The christmas present will be stored in a 
+database, along with the person name.
+
+```
+Your input -> Hi
+Hi, what's your name?
+Your input -> My name is Luke
+What do you want for Christmas?
+Your input -> I want a racing car
+Thanks Luke, I will note it down
+```
+
+
 ## Instalation
 
 Run the action server in a docker image.
@@ -25,19 +40,6 @@ $ rasa train
 $ rasa shell
 ```
 
-## Usage
-
-Here is an example of a simple conversation flow. The christmas present will be stored in a 
-database, along with the person name.
-
-```
-Your input -> Hi
-Hi, what's your name?
-Your input -> My name is Luke
-What do you want for Christmas?
-Your input -> I want a racing car
-Thanks Luke, I will note it down
-```
 
 ## License
 This repo has the Apache 2.0 License.
