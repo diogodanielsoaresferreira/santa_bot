@@ -1,7 +1,14 @@
+![Github repo size](https://img.shields.io/github/repo-size/diogodanielsoaresferreira/santa_bot)
+![GitHub license](https://img.shields.io/github/license/diogodanielsoaresferreira/santa_bot)
+![GitHub last commit](https://img.shields.io/github/last-commit/diogodanielsoaresferreira/santa_bot)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rasa)
+
+<img src="santa-claus-logo.svg" width=250 height=250 align="right">
+
 # Santa Claus Bot
+
 Talk directly with Santa Claus and tell him what presents you want!
 
-<img src="santa-claus-logo.svg" width=125 height=125 align="right">
 
 ## Instalation
 
