@@ -3,10 +3,14 @@ from datetime import datetime
 import pytest
 
 from actions.data_models import XmasPresents
-from .utils import instance
+from tests.actions import TEST_CONNECTION
 
 
 class TestXmasPresent:
+
+    @pytest.fixture
+    def instance(self) -> XmasPresents:
+        return XmasPresents(TEST_CONNECTION)
 
     @pytest.mark.parametrize("name,present", [
         ("Diogo", "car"),
