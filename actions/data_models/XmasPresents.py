@@ -10,11 +10,13 @@ Base = declarative_base()
 
 class XmasPresents:
 
-    def __init__(self):
+    def __init__(self, db_url=None):
         """
         Create the connection with the database and create table if it does not exist
         """
-        db_url = 'postgresql://{}:{}@{}:{}/{}'.format(DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
+        if db_url is None:
+            db_url = 'postgresql://{}:{}@{}:{}/{}'.format(DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
+
         self.engine = create_engine(db_url, echo=True)
         Session = sessionmaker(bind=self.engine)
         self.session = Session()

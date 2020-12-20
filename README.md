@@ -25,7 +25,7 @@ Thanks Luke, I will note it down
 ```
 
 
-## Instalation
+## Installation
 
 Run the action server in a docker image.
 
@@ -36,10 +36,16 @@ $ docker-compose up
 In a separate terminal, train and test the santa bot with the following commands.
 
 ```console
+$ pip install -r requirements.txt
 $ rasa train
 $ rasa shell
 ```
 
+If you wish to install the requirements needed for development, run the following command.
+
+```console
+$ pip install -r requirements-dev.txt
+'''
 
 ## License
 This repo has the Apache 2.0 License.

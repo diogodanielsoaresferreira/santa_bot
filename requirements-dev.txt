@@ -1,0 +1,4 @@
+-r requirements.txt
+rasa-x==0.34.0
+-r actions/requirements-actions.txt
+pytest==6.2.1
