@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from sqlalchemy import Column, Integer, String, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -23,6 +24,12 @@ class XmasPresents:
         Base.metadata.create_all(self.engine)
 
     def add_present(self, name: str, present: str) -> 'XmasPresentsModel':
+        if not isinstance(name, str) or len(name) == 0:
+            raise TypeError("argument 'name' must be str and have a length > 0.")
+
+        if not isinstance(present, str) or len(present) == 0:
+            raise TypeError("argument 'present' must be str and have a length > 0.")
+
         present = XmasPresentsModel(name=name, present=present)
         self.session.add(present)
         self.session.commit()
