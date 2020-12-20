@@ -1,0 +1,5 @@
+-r requirements.txt
+-i https://pypi.rasa.com/simple
+rasa-x==0.34.0
+-r actions/requirements-actions.txt
+pytest==6.2.1

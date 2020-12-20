@@ -19,8 +19,8 @@ def _get_slot(tracker: Tracker, slot: str):
 
 class SaveXmasPresent(Action):
 
-    def __init__(self):
-        self.xmasPresents = XmasPresents()
+    def __init__(self, db_url=None):
+        self.xmasPresents = XmasPresents(db_url)
         super().__init__()
 
     def name(self) -> Text:
@@ -30,7 +30,6 @@ class SaveXmasPresent(Action):
             dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
         name = _get_slot(tracker, NAME_SLOT)
         present = _get_slot(tracker, PRESENT_SLOT)
         self.xmasPresents.add_present(name, present)
