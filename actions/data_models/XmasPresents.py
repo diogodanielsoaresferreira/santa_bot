@@ -10,10 +10,15 @@ Base = declarative_base()
 
 
 class XmasPresents:
+    """Handle to store christmas presents in the database."""
 
     def __init__(self, db_url=None):
         """
-        Create the connection with the database and create table if it does not exist
+        Handle to store christmas presents in the database.
+
+        Creates the connection with the database and create table if it does not exist
+
+        :param db_url: database connection.
         """
         if db_url is None:
             db_url = 'postgresql://{}:{}@{}:{}/{}'.format(DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
@@ -24,6 +29,14 @@ class XmasPresents:
         Base.metadata.create_all(self.engine)
 
     def add_present(self, name: str, present: str) -> 'XmasPresentsModel':
+        """
+        Store present of a person in the database.
+
+        :param name: person name.
+        :param present: present name.
+        :raise TypeError: name and present must be str and have length > 0.
+        :return: XmasPresentsModel with the stored object.
+        """
         if not isinstance(name, str) or len(name) == 0:
             raise TypeError("argument 'name' must be str and have a length > 0.")
 
@@ -38,6 +51,7 @@ class XmasPresents:
 
 
 class XmasPresentsModel(Base):
+    """Model to store christas presents of a person."""
     __tablename__ = 'xmas_presents'
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(63), index=True)
