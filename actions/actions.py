@@ -16,14 +16,6 @@ def _get_slot(tracker: Tracker, slot: str) -> str:
     :param slot: slot key.
     :raise SlotNotFound: thrown if slot key is not in tracker.
     :return: slot value.
-
-    :example:
-
-    >>> tracker = {"key": "value"}
-    >>> _get_slot(tracker, "key")
-    value
-    >>> _get_slot(tracker, "not_found")
-    error
     """
     slot = tracker.get_slot(slot)
 
@@ -50,11 +42,6 @@ class SaveXmasPresent(Action):
         Action name.
 
         :return: action name.
-
-        :example:
-        >>> presents = SaveXmasPresent()
-        >>> presents.name()
-        action_save_xmas_present
         """
         return "action_save_xmas_present"
 
