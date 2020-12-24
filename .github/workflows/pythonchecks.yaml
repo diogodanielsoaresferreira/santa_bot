@@ -34,6 +34,6 @@ jobs:
     - name: Lint with isort
       run: |
         isort . --check --diff
-    - name: Test with pytest
+    - name: Test with pytest and coverage above 90%
       run: |
-        pytest
+        pytest --cov=actions --cov-fail-under=90

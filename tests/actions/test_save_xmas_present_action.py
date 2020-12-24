@@ -17,7 +17,8 @@ def action():
     return SaveXmasPresent(TEST_CONNECTION)
 
 
-def test_run_success(action: Action):
+@pytest.mark.asyncio
+async def test_run_success(action: Action):
     """
     Given a slot with name and present,
     When run action,
@@ -25,7 +26,7 @@ def test_run_success(action: Action):
 
     :param action: SaveXmasPresent action instance.
     """
-    result = action.run(
+    result = await action.run(
         None,
         Tracker.from_dict(
             {
@@ -40,7 +41,8 @@ def test_run_success(action: Action):
 
 
 @pytest.mark.parametrize("slots", [{NAME_SLOT: "name"}, {PRESENT_SLOT: "present"}])
-def test_run_slot_not_found_error(action: Action, slots: Dict[str, str]):
+@pytest.mark.asyncio
+async def test_run_slot_not_found_error(action: Action, slots: Dict[str, str]):
     """
     Given a slot without name or present,
     When run action,
@@ -50,4 +52,4 @@ def test_run_slot_not_found_error(action: Action, slots: Dict[str, str]):
     :param slots: slot.
     """
     with pytest.raises(SlotNotFound):
-        action.run(None, Tracker.from_dict({"sender_id": "1", "slots": slots}), None)
+        await action.run(None, Tracker.from_dict({"sender_id": "1", "slots": slots}), None)
