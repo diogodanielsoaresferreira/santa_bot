@@ -1,3 +1,4 @@
+"""Rasa actions to be called by the Rasa Server."""
 from typing import Any, Dict, List, Text
 
 from rasa_sdk import Action, Tracker
@@ -45,7 +46,7 @@ class SaveXmasPresent(Action):
         """
         return "action_save_xmas_present"
 
-    def run(
+    async def run(
         self,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,

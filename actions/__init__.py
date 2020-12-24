@@ -1,3 +1,4 @@
+"""This package contains the rasa actions to be called by the Rasa action server."""
 import os
 
 # Slots from Rasa

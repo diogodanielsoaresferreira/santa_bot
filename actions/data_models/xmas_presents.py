@@ -1,3 +1,4 @@
+"""This module contains the class XmasPresents to store a present for a person."""
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, String, create_engine

@@ -1,3 +1,6 @@
+"""Implementation of SlotNotFound exception."""
+
+
 class SlotNotFound(Exception):
     """Slot not found exception."""
 

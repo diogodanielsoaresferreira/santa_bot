@@ -1,0 +1,5 @@
+[MESSAGES CONTROL]
+disable=R0903
+
+[TYPECHECK]
+ignored-classes=Session
