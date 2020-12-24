@@ -11,7 +11,7 @@ from .exceptions import SlotNotFound
 
 def _get_slot(tracker: Tracker, slot: str) -> str:
     """
-    Extracts a slot value from a tracker.
+    Extract slot value from a tracker.
 
     :param tracker: conversation tracker.
     :param slot: slot key.
@@ -40,7 +40,7 @@ class SaveXmasPresent(Action):
 
     def name(self) -> Text:
         """
-        Action name.
+        Get action name.
 
         :return: action name.
         """
