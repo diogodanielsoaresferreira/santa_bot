@@ -2,9 +2,9 @@ from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from actions import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
 from sqlalchemy.orm import sessionmaker
 
-from actions import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
 
 Base = declarative_base()
 

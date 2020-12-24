@@ -27,6 +27,12 @@ jobs:
       run: |
         # stop the build if there are errors. The GitHub editor is 127 chars wide.
         flake8 . --count --show-source --statistics --max-complexity=10 --max-line-length=127
+#    - name: Lint with pylint
+#      run: |
+#        #
+    - name: Lint with isort
+      run: |
+        isort . --check --diff
     - name: Test with pytest
       run: |
         pytest
