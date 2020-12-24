@@ -3,3 +3,7 @@
 rasa-x==0.34.0
 -r actions/requirements-actions.txt
 pytest==6.2.1
+
+# style checks
+black==20.8b1
+pylint==2.6.0

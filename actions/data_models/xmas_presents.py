@@ -21,14 +21,16 @@ class XmasPresents:
         :param db_url: database connection.
         """
         if db_url is None:
-            db_url = 'postgresql://{}:{}@{}:{}/{}'.format(DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
+            db_url = "postgresql://{}:{}@{}:{}/{}".format(
+                DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME
+            )
 
         self.engine = create_engine(db_url, echo=True)
-        Session = sessionmaker(bind=self.engine)
-        self.session = Session()
+        session = sessionmaker(bind=self.engine)
+        self.session = session()
         Base.metadata.create_all(self.engine)
 
-    def add_present(self, name: str, present: str) -> 'XmasPresentsModel':
+    def add_present(self, name: str, present: str) -> "XmasPresentsModel":
         """
         Store present of a person in the database.
 
@@ -52,7 +54,8 @@ class XmasPresents:
 
 class XmasPresentsModel(Base):
     """Model to store christas presents of a person."""
-    __tablename__ = 'xmas_presents'
+
+    __tablename__ = "xmas_presents"
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(63), index=True)
     present = Column(String(63))

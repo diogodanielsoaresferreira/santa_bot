@@ -1,1 +1,1 @@
-TEST_CONNECTION = 'sqlite:///:memory:'
+TEST_CONNECTION = "sqlite:///:memory:"

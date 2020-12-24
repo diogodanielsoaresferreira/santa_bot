@@ -34,7 +34,7 @@ class SaveXmasPresent(Action):
 
         :param db_url: connection to the database.
         """
-        self.xmasPresents = XmasPresents(db_url)
+        self.xmas_presents = XmasPresents(db_url)
         super().__init__()
 
     def name(self) -> Text:
@@ -45,10 +45,12 @@ class SaveXmasPresent(Action):
         """
         return "action_save_xmas_present"
 
-    def run(self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         """
         Run the action and store the christmas present in the database.
 
@@ -59,6 +61,6 @@ class SaveXmasPresent(Action):
         """
         name = _get_slot(tracker, NAME_SLOT)
         present = _get_slot(tracker, PRESENT_SLOT)
-        self.xmasPresents.add_present(name, present)
+        self.xmas_presents.add_present(name, present)
 
         return []
