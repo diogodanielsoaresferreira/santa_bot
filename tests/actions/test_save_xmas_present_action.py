@@ -1,7 +1,7 @@
 from typing import Dict
 
 import pytest
-from rasa_sdk import Tracker, Action
+from rasa_sdk import Action, Tracker
 
 from actions import NAME_SLOT, PRESENT_SLOT
 from actions.actions import SaveXmasPresent

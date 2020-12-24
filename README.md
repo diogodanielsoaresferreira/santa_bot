@@ -5,6 +5,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/diogodanielsoaresferreira/santa_bot)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rasa)
 [![GitHub Super-Linter](https://github.com/diogodanielsoaresferreira/santa_bot/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
 <img src="santa-claus-logo.svg" width=250 height=250 align="right">
@@ -32,7 +33,7 @@ Thanks Luke, I will note it down
 Run the action server in a docker image.
 
 ```console
-$ docker-compose up
+docker-compose up
 ```
 
 In a separate terminal, train and test the santa bot with the following commands.

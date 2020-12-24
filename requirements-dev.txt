@@ -7,3 +7,5 @@ pytest==6.2.1
 # style checks
 black==20.8b1
 pylint==2.6.0
+flake8==3.8.4
+isort==5.6.4

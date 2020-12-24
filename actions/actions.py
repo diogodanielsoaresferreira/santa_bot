@@ -1,11 +1,11 @@
-from typing import Any, Text, Dict, List
+from typing import Any, Dict, List, Text
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+from . import NAME_SLOT, PRESENT_SLOT
 from .data_models import XmasPresents
 from .exceptions import SlotNotFound
-from . import NAME_SLOT, PRESENT_SLOT
 
 
 def _get_slot(tracker: Tracker, slot: str) -> str:
