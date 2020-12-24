@@ -50,6 +50,4 @@ def test_run_slot_not_found_error(action: Action, slots: Dict[str, str]):
     :param slots: slot.
     """
     with pytest.raises(SlotNotFound):
-        action.run(
-            None, Tracker.from_dict({"sender_id": "1", "slots": slots}), None
-        )
+        action.run(None, Tracker.from_dict({"sender_id": "1", "slots": slots}), None)

@@ -48,7 +48,7 @@ def test_add_present_success(instance: XmasPresents, name: str, present: str):
     ],
 )
 def test_add_present_argument_type_error(
-        instance: XmasPresents, name: str, present: str
+    instance: XmasPresents, name: str, present: str
 ):
     """
     Given a person name or a present malformed,
