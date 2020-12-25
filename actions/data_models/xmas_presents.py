@@ -46,7 +46,7 @@ class XmasPresents:
         if not isinstance(present, str) or len(present) == 0:
             raise TypeError("argument 'present' must be str and have a length > 0.")
 
-        xmas_present = XmasPresentsModel(name=name, present=present)
+        xmas_present = XmasPresentsModel(name=name, present=present)  # type: ignore
         self.session.add(xmas_present)
         self.session.commit()
         self.session.refresh(xmas_present)
