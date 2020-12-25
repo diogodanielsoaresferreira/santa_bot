@@ -1,10 +1,11 @@
+"""This module contains the class XmasPresents to store a present for a person."""
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, String, DateTime, create_engine
+from sqlalchemy import Column, DateTime, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from actions import DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME
+from actions import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
 
 Base = declarative_base()
 
@@ -21,14 +22,16 @@ class XmasPresents:
         :param db_url: database connection.
         """
         if db_url is None:
-            db_url = 'postgresql://{}:{}@{}:{}/{}'.format(DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
+            db_url = "postgresql://{}:{}@{}:{}/{}".format(
+                DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME
+            )
 
         self.engine = create_engine(db_url, echo=True)
-        Session = sessionmaker(bind=self.engine)
-        self.session = Session()
+        session = sessionmaker(bind=self.engine)
+        self.session = session()
         Base.metadata.create_all(self.engine)
 
-    def add_present(self, name: str, present: str) -> 'XmasPresentsModel':
+    def add_present(self, name: str, present: str) -> "XmasPresentsModel":
         """
         Store present of a person in the database.
 
@@ -43,16 +46,17 @@ class XmasPresents:
         if not isinstance(present, str) or len(present) == 0:
             raise TypeError("argument 'present' must be str and have a length > 0.")
 
-        present = XmasPresentsModel(name=name, present=present)
-        self.session.add(present)
+        xmas_present = XmasPresentsModel(name=name, present=present)  # type: ignore
+        self.session.add(xmas_present)
         self.session.commit()
-        self.session.refresh(present)
-        return present
+        self.session.refresh(xmas_present)
+        return xmas_present
 
 
 class XmasPresentsModel(Base):
     """Model to store christas presents of a person."""
-    __tablename__ = 'xmas_presents'
+
+    __tablename__ = "xmas_presents"
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(63), index=True)
     present = Column(String(63))
