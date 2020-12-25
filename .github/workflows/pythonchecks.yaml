@@ -38,6 +38,9 @@ jobs:
     - name: Lint with isort
       run: |
         isort . --check --diff
+    - name: Mypy check
+      run: |
+        mypy . --config-file mypy.ini
     - name: Test with pytest and coverage above 90%
       run: |
         pytest --cov=actions --cov-fail-under=90

@@ -1,8 +1,8 @@
 """Rasa actions to be called by the Rasa Server."""
 from typing import Any, Dict, List, Text
 
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk import Action, Tracker  # type: ignore
+from rasa_sdk.executor import CollectingDispatcher  # type: ignore
 
 from . import NAME_SLOT, PRESENT_SLOT
 from .data_models import XmasPresents

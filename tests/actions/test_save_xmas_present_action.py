@@ -3,7 +3,7 @@
 from typing import Dict
 
 import pytest
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker   # type: ignore
 
 from actions import NAME_SLOT, PRESENT_SLOT
 from actions.actions import SaveXmasPresent
