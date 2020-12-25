@@ -1,0 +1,35 @@
+name: Rasa tests
+
+on: push
+
+jobs:
+  rasa-tests:
+    name: Rasa tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+# Uncomment only when there are stories
+#    - name: Validate data and stories
+#      run: |
+#        rasa data validate --max-history 5 --fail-on-warning
+    - name: Train a model
+      run: |
+        rasa train
+    - name: Test a model
+      run: |
+        rasa test --fail-on-prediction-errors
+    - name: Report NLU performance
+      run: |
+        rasa test nlu --cross-validation
