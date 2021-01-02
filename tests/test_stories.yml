@@ -22,15 +22,15 @@ stories:
     - action: action_save_xmas_present
     - action: utter_note_christmas_presents
 
-- story: Xmas form - wrong name
+- story: Xmas form - not catching name
   steps:
     - user: |
-        Hi Santa Claus!
+        Hi [Santa Claus](PERSON)!
       intent: greeting
     - action: xmas_form
     - active_loop: xmas_form
     - user: |
-        My name is lalala.
+        My name is ompalompa.
       intent: says_name
     - action: utter_repeat_please
     - action: xmas_form
@@ -45,13 +45,13 @@ stories:
 - story: Xmas form - not name intent
   steps:
     - user: |
-        Hi Santa Claus!
+        Hi [Santa Claus](PERSON)!
       intent: greeting
     - action: xmas_form
     - active_loop: xmas_form
     - user: |
         lalala.
-      intent: greeting
+      intent: out_of_scope
     - action: utter_repeat_please
     - action: xmas_form
     - slot_was_set:
@@ -62,7 +62,27 @@ stories:
     - action: action_save_xmas_present
     - action: utter_note_christmas_presents
 
-- story: Xmas form - wrong product
+- story: Xmas form - not catching product
+  steps:
+    - user: |
+        Hi there
+      intent: greeting
+    - action: xmas_form
+    - active_loop: xmas_form
+    - slot_was_set:
+      - PERSON: John
+    - user: |
+        I want your mom.
+      intent: christmas_presents
+    - action: utter_repeat_please
+    - action: xmas_form
+    - slot_was_set:
+      - product: Racing car
+    - active_loop: null
+    - action: action_save_xmas_present
+    - action: utter_note_christmas_presents
+
+- story: Xmas form - not product intent
   steps:
     - user: |
         Hi there
@@ -73,7 +93,7 @@ stories:
       - PERSON: John
     - user: |
         blabla.
-      intent: christmas_presents
+      intent: out_of_scope
     - action: utter_repeat_please
     - action: xmas_form
     - slot_was_set:
