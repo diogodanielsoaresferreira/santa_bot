@@ -7,6 +7,11 @@ rules:
   - intent: nlu_fallback
   - action: utter_repeat_please
 
+- rule: Ask the user to rephrase in case of out of scope intent
+  steps:
+  - intent: out_of_scope
+  - action: utter_repeat_please
+
 - rule: Say that is Santa Claus
   steps:
   - intent: who_are_you

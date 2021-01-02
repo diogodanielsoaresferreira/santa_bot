@@ -36,7 +36,6 @@ jobs:
     - name: Train a model
       run: |
         rasa train
-# Uncomment only when all rasa tests pass
-#    - name: Test a model
-#      run: |
-#        rasa test --fail-on-prediction-errors
+    - name: Test a model
+      run: |
+        rasa test --fail-on-prediction-errors

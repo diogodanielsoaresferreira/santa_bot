@@ -6,6 +6,7 @@ intents:
 - greeting
 - says_name
 - christmas_presents
+- out_of_scope
 entities:
 - PERSON
 - product
