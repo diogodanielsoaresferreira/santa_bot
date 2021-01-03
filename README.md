@@ -1,13 +1,14 @@
 # Santa Claus Bot
 
-![Github repo size](https://img.shields.io/github/repo-size/diogodanielsoaresferreira/santa_bot)
-![GitHub license](https://img.shields.io/github/license/diogodanielsoaresferreira/santa_bot)
-![GitHub last commit](https://img.shields.io/github/last-commit/diogodanielsoaresferreira/santa_bot)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rasa)
-[![GitHub Super-Linter](https://github.com/diogodanielsoaresferreira/santa_bot/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+![Checks](https://img.shields.io/github/checks-status/diogodanielsoaresferreira/santa_bot/main)
+![GitHub last commit](https://img.shields.io/github/last-commit/diogodanielsoaresferreira/santa_bot)
+![Github repo size](https://img.shields.io/github/repo-size/diogodanielsoaresferreira/santa_bot)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
-[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+![GitHub license](https://img.shields.io/github/license/diogodanielsoaresferreira/santa_bot)
+
 
 <img src="santa-claus-logo.svg" width=250 height=250 align="right">
 
