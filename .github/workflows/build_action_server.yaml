@@ -2,7 +2,7 @@ name: Build action server, upload to Docker Hub and deploy in Heroku
 on: push
   push:
     branches:
-      - main
+    - main
     paths:
     - 'actions/**'
 
