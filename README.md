@@ -1,7 +1,7 @@
 # Santa Claus Bot
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rasa)
-![Checks](https://img.shields.io/github/checks-status/diogodanielsoaresferreira/santa_bot/main)
+![Build](https://img.shields.io/github/checks-status/diogodanielsoaresferreira/santa_bot/main?label=build)
 ![GitHub last commit](https://img.shields.io/github/last-commit/diogodanielsoaresferreira/santa_bot)
 ![Github repo size](https://img.shields.io/github/repo-size/diogodanielsoaresferreira/santa_bot)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)

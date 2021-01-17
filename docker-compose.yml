@@ -8,6 +8,7 @@ services:
       context: .
     image: rasa_actions:0.0.1
     environment:
+      - PORT=3000
       - DB_HOST=xmas_db
     ports:
       - 5055:5055
